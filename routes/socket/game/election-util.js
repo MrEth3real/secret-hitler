@@ -124,6 +124,11 @@ module.exports.selectChancellor = (socket, passport, game, data) => {
 
 		setTimeout(() => {
 			seatedPlayers.forEach(player => {
+				// Prevent remade games from continuing
+				if (game.general.isRemade) {
+					return;
+				}
+				
 				if (player.cardFlingerState && player.cardFlingerState.length) {
 					player.cardFlingerState[0].cardStatus.isFlipped = player.cardFlingerState[1].cardStatus.isFlipped = true;
 					player.cardFlingerState[0].notificationStatus = player.cardFlingerState[1].notificationStatus = 'notification';
