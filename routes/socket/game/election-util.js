@@ -128,7 +128,7 @@ module.exports.selectChancellor = (socket, passport, game, data) => {
 				if (game.general.isRemade) {
 					return;
 				}
-				
+
 				if (player.cardFlingerState && player.cardFlingerState.length) {
 					player.cardFlingerState[0].cardStatus.isFlipped = player.cardFlingerState[1].cardStatus.isFlipped = true;
 					player.cardFlingerState[0].notificationStatus = player.cardFlingerState[1].notificationStatus = 'notification';
